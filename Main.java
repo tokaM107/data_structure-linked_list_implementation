@@ -5,9 +5,10 @@ public class Main {
     l.insertfirst(1);
     l.insertfirst(2);
     l.insertfirst(3);
-    // l.insertmid(2, 1);
-    //  l.insertend(5);
+    l.insertmid(8, 1);
+     l.insertend(5);
     l.deletefirst();
+    l.deletelast();
 l.display();
 }   
 }

@@ -2,14 +2,26 @@
 
 public class linkedlist {
     node head;
+    node tail;
     int size = 0;
 
     public node getHead() {
         return head;
     }
 
+
     public void setHead(node head) {
         this.head = null;
+    }
+
+
+    public node getTail() {
+        return tail;
+    }
+    
+
+    public void setTail(node tail) {
+        this.tail = null;
     }
 
     public int traversing(node head) {
@@ -29,20 +41,25 @@ public class linkedlist {
     }
 
     public void insertend(int val) {
-        node newnode = new node(val);
+        if (head==null) {
+            insertfirst(val);
+        }else{
+            node newnode = new node(val);
         node temp = head;
         while (temp.next != null) {
             temp = temp.next;
         }
         temp.next = newnode;
+        }
+        
 
     }
-
+// it is not inserting elements in position 0
     public void insertmid(int val, int pos) {
         int size = 0;
         node newnode = new node(val);
         node temp = head;
-      
+       
         while (temp != null && (size < pos-1 || pos==0)) {
             size++;
             temp = temp.next;
@@ -66,11 +83,19 @@ public class linkedlist {
     
 
 public void deletelast(){
-    node tail= head ;
+    if (head == null ) {
+        System.out.println(" list does not contain elements ");
+    }else if (head.next==null) {
+        deletefirst();
+    }
+    else{
+         tail= head ;
     while (tail.next.next != null) {
         tail = tail.next;
     }
   tail.next=null;
+    }
+    
   
 }
 
